@@ -1,0 +1,73 @@
+{
+  "font": "Helvetica",
+  "font_size": 12,
+  "rounded_boxes": true,
+  "edge": {
+    "color": "#5F5E5A",
+    "font": "#444441"
+  },
+  "container": {
+    "fill": "none",
+    "stroke": "#B4B2A9",
+    "font": "#2C2C2A",
+    "dashed": true
+  },
+  "default_role": "primary",
+  "roles": {
+    "primary": {
+      "fill": "#E6F1FB",
+      "stroke": "#185FA5",
+      "font": "#0C447C",
+      "description": "core platform services and the main system components"
+    },
+    "network": {
+      "fill": "#E1F5EE",
+      "stroke": "#0F6E56",
+      "font": "#085041",
+      "description": "network devices: routers, switches, CDN, WAN links"
+    },
+    "data": {
+      "fill": "#EEEDFE",
+      "stroke": "#534AB7",
+      "font": "#3C3489",
+      "description": "databases, storage, data pipelines, message brokers"
+    },
+    "security": {
+      "fill": "#FCEBEB",
+      "stroke": "#A32D2D",
+      "font": "#791F1F",
+      "description": "firewalls, identity, PKI, security controls"
+    },
+    "edge": {
+      "fill": "#F1EFE8",
+      "stroke": "#5F5E5A",
+      "font": "#444441",
+      "description": "end-user and edge devices: browsers, phones, IoT, sensors"
+    },
+    "app": {
+      "fill": "#E6F1FB",
+      "stroke": "#378ADD",
+      "font": "#0C447C",
+      "description": "applications, APIs, user-facing software"
+    },
+    "external": {
+      "fill": "#FBEAF0",
+      "stroke": "#993556",
+      "font": "#72243E",
+      "description": "external parties and systems outside our control"
+    },
+    "phase2": {
+      "fill": "#FAEEDA",
+      "stroke": "#BA7517",
+      "font": "#633806",
+      "description": "anything added in a later project phase (drawn dashed)",
+      "dashed": true
+    }
+  },
+  "rules": [
+    "Use sentence case for all labels.",
+    "Keep each label to two short lines: a name, then a 2-5 word description.",
+    "Group related components in a subgraph named after the layer or zone.",
+    "Show later-phase components with the phase2 class."
+  ]
+}

@@ -1,0 +1,21 @@
+# Your private data - never commit
+backroom.json
+style.json
+.backroom/
+output/
+notes/
+*.potx
+*.pptx
+*.docx
+*.pdf
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/

@@ -1,0 +1,42 @@
+flowchart LR
+  subgraph clients["Clients"]
+    direction TB
+    web["Web browser<br/>single-page app"]
+    mobile["Mobile app<br/>iOS / Android"]
+  end
+  subgraph perimeter["Perimeter"]
+    direction TB
+    cdn["CDN<br/>static assets"]
+    waf{{"Web firewall<br/>WAF rules"}}
+  end
+  subgraph platform["Application platform"]
+    gw["API gateway<br/>auth, rate limits"]
+    subgraph services["Services"]
+      direction TB
+      orders["Orders service"]
+      users["Users service"]
+      search["Search service<br/>phase 2"]
+    end
+    gw --> orders & users
+    gw -.-> search
+  end
+  subgraph data["Data tier"]
+    direction TB
+    db[("Orders DB<br/>PostgreSQL")]
+    cache[("Cache<br/>Redis")]
+    queue[("Event queue<br/>Kafka")]
+  end
+  pay(["Payment provider"])
+  web & mobile --> cdn
+  cdn ==>|HTTPS| waf --> gw
+  orders --> db & queue
+  users --> cache
+  orders <-->|webhook| pay
+  class web,mobile edge
+  class cdn network
+  class waf security
+  class gw primary
+  class orders,users app
+  class search phase2
+  class db,cache,queue data
+  class pay external

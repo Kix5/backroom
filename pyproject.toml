@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "backroom"
+version = "0.1.0"
+description = "A private, local-LLM workspace for confidential work: diagrams, document Q&A and notes, grounded in your own files and company style."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "backroom contributors" }]
+keywords = ["private-ai", "local-llm", "diagram", "mermaid", "drawio", "llm", "ollama", "lm-studio", "rag", "local-ai", "architecture"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Information Technology",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Topic :: Multimedia :: Graphics :: Presentation",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "requests>=2.31",
+  "numpy>=1.26",
+  "pypdf>=4.0",
+  "python-docx>=1.1",
+  "python-pptx>=0.6.23",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.5"]
+
+[project.scripts]
+backroom = "backroom.cli:main"
+br = "backroom.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B", "UP", "I"]
